@@ -519,4 +519,8 @@ defmodule AshEventsTest do
     assert Enum.count(rows) == 2
     assert lock_row != nil
   end
+
+  test "cloaked event logs encrypt data and metadata" do
+    org = Accounts.create_org_cloaked!(%{name: "Cloaked name"})
+  end
 end
