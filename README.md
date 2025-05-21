@@ -39,6 +39,7 @@ First, define a resource that will store your events:
 ```elixir
 defmodule MyApp.Events.Event do
   use Ash.Resource,
+    domain: nil,
     extensions: [AshEvents.EventLog]
 
   event_log do
@@ -54,7 +55,7 @@ defmodule MyApp.Events.Event do
 
     # Store primary key of actors running the actions
     persist_actor_primary_key :user_id, MyApp.Accounts.User
-    persist_actor_primary_key :system_actor, MyApp.SystemActor, attribute: :string
+    persist_actor_primary_key :system_actor, MyApp.SystemActor, attribute_type: :string
   end
 
   # Optional: Configure replay overrides for version handling
