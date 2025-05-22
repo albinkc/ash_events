@@ -39,7 +39,7 @@ First, define a resource that will store your events:
 ```elixir
 defmodule MyApp.Events.Event do
   use Ash.Resource,
-    domain: nil,
+    domain: MyApp.Events,
     extensions: [AshEvents.EventLog]
 
   event_log do
